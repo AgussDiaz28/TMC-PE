@@ -4,10 +4,7 @@ function [] = imprimir(todas_las_probabilidades,probabilidad,dni,epsilon)
     hold on
     xlabel('Numero de iteracion');
     ylabel('Probabilidad');
-    ylim([0 1]);
+    ylim([0 1.5]);
     legend(strcat('Evolucion de la probabilidad: ', num2str(epsilon) ));
     grid on
-    
-
-
 end
