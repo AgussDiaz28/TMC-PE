@@ -14,6 +14,7 @@ function [probabilidad, todas_las_probabilidades] = calcular_probabilidad(epsilo
            
               % La probabilidad anterior es la probabilidad actual
               probabilidad_anterior = probabilidad_actual;
+              
               % ------------------------- realizo dos llamados a la funcion y los guardo en variables para luego compararlas
               eventoA = my_mex_service(dni);
               eventoB = my_mex_service(dni);
@@ -21,13 +22,15 @@ function [probabilidad, todas_las_probabilidades] = calcular_probabilidad(epsilo
               
                   if ( ( eventoA == 0 ) && ( eventoB == 0 ) )                            %Este es mi caso exitoso
                               casos_favorables = casos_favorables +1;                    %como entre en mi caso exitoso aumento la variable
+                          
                   end      
                   
               %aumento la cantidad de casos     
-              total_de_casos = total_de_casos + 1;                              
-              probabilidad_actual = casos_favorables / total_de_casos;    
-              todas_las_probabilidades = cat(1, todas_las_probabilidades, probabilidad_actual);
-              
+              total_de_casos = (total_de_casos + 1);   
+              %calculo la probabilidad actual              
+              probabilidad_actual = (casos_favorables / total_de_casos);   
+              %guardo la probabilidad en el arreglo 
+              todas_las_probabilidades = cat(1, todas_las_probabilidades, probabilidad_actual);     
         end
         
     %Devuelvo la el resultado de la probabilidad final
